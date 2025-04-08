@@ -1,4 +1,5 @@
 async function getData() {
+  console.log("in the getData method")
   const baseUrl = "https://tourism.api.opendatahub.com/v1/EventShort";
 
   const params = new URLSearchParams({
