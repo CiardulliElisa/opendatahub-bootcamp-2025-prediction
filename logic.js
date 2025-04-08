@@ -4,9 +4,6 @@
 async function getData() {
   console.log("in the getData method")
   const url = "https://mobility.api.opendatahub.com/v2/tree/ParkingStation/*/latest?where=scode.eq.\"103\",sactive.eq.true";
-  const url2 = "https://mobility.api.opendatahub.com/v2/flat/ParkingStation/*/2024-04-07/2025-04-07?limit=-1&offset=0&select=smetadata.capacity%2C%20occupied%2C%20free&where=where%3Dscode.eq.%5C%103%5C%22&shownull=true&distinct=false&timezone=UTC";
-  const url3 = "https://mobility.api.opendatahub.com/v2/flat/ParkingStation/*/2024-04-07/2025-04-07?limit=-1&offset=0&select=smetadata.capacity,occupied,free&where=where=scode.eq.\"103\"&shownull=true&distinct=false&timezone=UTC";
-
   try {
     const response = await fetch(url3);
     if (!response.ok) {
