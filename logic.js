@@ -1,16 +1,6 @@
 async function getData() {
   console.log("in the getData method")
-  const baseUrl = "https://mobility.api.opendatahub.com/v2/tree%2Cnode/ParkingStation/%2A/latest";
-
-  const params = new URLSearchParams({
-    limit: 200,
-    offset: 0,
-    shownull: false,
-    distinct : true,
-    timezone: "UTC"
-  });
-
-  const url = `${baseUrl}?${params.toString()}`;
+  const url = "https://mobility.api.opendatahub.com/v2/tree/ParkingStation/*/latest?where=scode.eq.\"103\",sactive.eq.true";
 
   try {
     const response = await fetch(url);
@@ -19,12 +9,25 @@ async function getData() {
     }
 
     const json = await response.json();
-    console.log(json.data.ParkingStation);
-    return json;
+    const result = json.data.ParkingStation.stations;
+    displayResult(JSON.stringify(result));
   } catch (error) {
     console.error(error.message);
   }
 }
+
+function displayResult(result) {
+  console.log("in displayresult: " + result)
+  const paragraph = document.getElementById('data');
+  if (result && result.length > 0) {
+    paragraph.textContent = `Station Data: ` + result;
+  } else {
+    paragraph.textContent = "No data available.";
+  }
+}
+
+window.onload = getData;
+
 
 function saveData(jsonData){
     let csv = '';
