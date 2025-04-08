@@ -9,6 +9,19 @@
 <body>
   <h1>Bootcamp 2025</h1>
   <p id="data"></p>
+
+  <p>This is the data of the parking station Piazza Walther in Bolzano</p>
+  <form action="/action_page.php">
+      <label for="date">Prediction for: (MM/DD/YYYY)</label>
+      <input type="text" id="date" name="requestedDay"><br><br>
+      <input type="submit" value="Submit">
+
+  </form>
+
+  ´<p>
+    Here you can see the result for your request:
+    //insert here a table for each hour with the expected free slots
+  </p>
   <script src="./logic.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
