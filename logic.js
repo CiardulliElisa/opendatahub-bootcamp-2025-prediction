@@ -1,9 +1,13 @@
 async function getData() {
   console.log("in the getData method")
-  const baseUrl = "https://tourism.api.opendatahub.com/v1/EventShort";
+  const baseUrl = "https://mobility.api.opendatahub.com/v2/tree%2Cnode/ParkingStation/%2A/latest";
 
   const params = new URLSearchParams({
-    pagenumber: "1",
+    limit: 200,
+    offset: 0,
+    shownull: false,
+    distinct : true,
+    timezone: UTC
   });
 
   const url = `${baseUrl}?${params.toString()}`;
