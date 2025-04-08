@@ -1,3 +1,6 @@
+
+
+
 async function getData() {
   console.log("in the getData method")
   const baseUrl = "https://mobility.api.opendatahub.com/v2/tree%2Cnode/ParkingStation/%2A/latest";
