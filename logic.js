@@ -20,3 +20,31 @@ async function getData() {
     console.error(error.message);
   }
 }
+
+
+
+function saveData(jsonData){
+    let csv = '';
+
+    // Extract headers
+    const headers = Object.keys(jsonData[0]);
+    csv += headers.join(',') + '\n';
+
+    // Extract values
+    jsonData.forEach(obj => {
+      const values = headers.map(header => obj[header]);
+      csv += values.join(',') + '\n';
+    });
+
+    var fs = require('fs');
+    fs.writeFile('./parkingLotData.csv',csv,(err)={
+        if(err){
+            console.log(err)
+            throw new Error(err)
+        }
+
+  });
+
+}
+
+
