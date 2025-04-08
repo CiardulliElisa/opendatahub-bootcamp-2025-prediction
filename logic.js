@@ -7,7 +7,7 @@ async function getData() {
     offset: 0,
     shownull: false,
     distinct : true,
-    timezone: UTC
+    timezone: "UTC"
   });
 
   const url = `${baseUrl}?${params.toString()}`;
@@ -19,14 +19,12 @@ async function getData() {
     }
 
     const json = await response.json();
-    console.log(json.Items);
+    console.log(json.data.ParkingStation);
     return json;
   } catch (error) {
     console.error(error.message);
   }
 }
-
-
 
 function saveData(jsonData){
     let csv = '';
@@ -47,7 +45,6 @@ function saveData(jsonData){
             console.log(err)
             throw new Error(err)
         }
-
   });
 
 }
