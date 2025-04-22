@@ -11,4 +11,8 @@ public class ParkingData extends GetData {
         return null;
     }
 
+    private String generateURL() { return null; };
+
+    private String generateURL(ParkingStation station) { return null; };
+
 }
