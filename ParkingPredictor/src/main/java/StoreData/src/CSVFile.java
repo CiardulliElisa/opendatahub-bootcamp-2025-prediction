@@ -1,5 +1,3 @@
-package org.storeData;
-
 public class CSVFile implements ReadData, SaveData{
 
     @Override

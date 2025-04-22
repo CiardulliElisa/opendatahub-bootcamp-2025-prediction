@@ -1,4 +1,4 @@
-public class ParkingLot {
+public class ParkingStation {
 
     // define useful attributes
     String name;
@@ -13,6 +13,7 @@ public class ParkingLot {
     int free_lots;
     int occupied_lots;
     int mperiod;
+    int _timestamp;
 
 
     // add getters and setters

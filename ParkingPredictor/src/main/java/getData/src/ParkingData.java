@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ParkingData extends GetData {
 
-    List<ParkingLot> parkingData = new ArrayList<ParkingLot>();
+    List<ParkingStation> parkingData = new ArrayList<>();
 
     // Returns all data from the Parking API
     // @param url - API url
