@@ -1,8 +1,9 @@
-package main.java.Main.src;
+package main.java;
 
 public class Main {
 
 	public static void main(String[] args) {
+
 //		getUserInput();
 //		getPrediction();
 //		getData();
