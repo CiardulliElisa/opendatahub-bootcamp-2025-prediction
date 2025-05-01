@@ -15,10 +15,10 @@ You are free to use whatever programming language best fits your group, but with
 For this challenge you will use the parking dataset, which is part of the Open Data Hub's mobility domain.  
 You can explore it using the
 - [analytics frontend](https://analytics.opendatahub.com/) (under "Parking")
-- [API](https://mobility.api.opendatahub.com/v2/tree/ParkingStation/free,occupied/latest)
+- [API](https://mobility.api.opendatahub.com/v2/tree/get.data.ParkingStation/free,occupied/latest)
 - [databrowser](https://databrowser.opendatahub.com/dataset-overview/178ea911-cc54-418e-b42e-52cad18f1ec1) 
 
-The stations are of type `ParkingStation`.
+The stations are of type `get.data.ParkingStation`.
 
 Not all parking stations have their time series data publicly accessible, and not all have the same data types and fields.
 
@@ -87,12 +87,12 @@ Stations may exist independently of measurements.
 Stations have a `metadata` object, that contains additional information about the station.
 
 This is a real world example of a parking station that has two data types, `free` and `occupied`, both with period 300. Some field's have been omitted for clarity's sake:
-https://mobility.api.opendatahub.com/v2/tree/ParkingStation/*/latest?where=scode.eq.%22107%22,sactive.eq.true
+https://mobility.api.opendatahub.com/v2/tree/get.data.ParkingStation/*/latest?where=scode.eq.%22107%22,sactive.eq.true
 ```json
 {
   "offset": 0,
   "data": {
-    "ParkingStation": {
+    "get.data.ParkingStation": {
       "stations": {
         "107": {
           "sactive": true,
@@ -134,7 +134,7 @@ https://mobility.api.opendatahub.com/v2/tree/ParkingStation/*/latest?where=scode
           "smetadata": {"capacity": 145, "municipality": "Bolzano - Bozen"},
           "sname": "P07 - Mareccio via C. de Medici",
           "sorigin": "FAMAS",
-          "stype": "ParkingStation"
+          "stype": "get.data.ParkingStation"
         }
       }
     }

@@ -15,4 +15,4 @@ I think it is important to write down a plan for the project and the problems th
 # Elisabeth
 - StoreData, Open Data Hub presentation, website page ideas
 # Elisa
-- getData(), ParkingData methods, (prediction research)
+- getData(), get.data.ParkingData methods, (prediction research)
