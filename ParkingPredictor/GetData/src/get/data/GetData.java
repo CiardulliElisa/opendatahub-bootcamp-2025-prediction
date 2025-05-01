@@ -1,7 +1,10 @@
+package get.data;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.time.LocalDateTime;
 
 public abstract class GetData {
     private static final String TOKEN_URL = "https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/token";
@@ -9,14 +12,10 @@ public abstract class GetData {
     private static final String CLIENT_SECRET = "QiMsLjDpLi5ffjKRkI7eRgwOwNXoU9l1";
     private static final String API_URL = "https://api.opendatahub.com/your-api-endpoint";
 
-//    public static void main(String[] args) throws IOException {
-//        String s = generateAccessToken();
-//        System.out.println(s);
-//    }
-
-    // Returns all data from an API
-    // @param url - API url
-    public abstract Object[] getData(String url);
+    // Returns ParkingStation - all data for a certain parking station for a certain interval of time
+    // @param startTime and endTime - start and end of the interval of time we are interested in
+    // @param code - the code of the parking lot we are interested in
+    public abstract ParkingStation getData(LocalDateTime startDate, LocalDateTime endDate, int code) throws IOException;
 
     // Returns an access token that is used to retrieve data for 48 hours
     public static String generateAccessToken() throws IOException {
