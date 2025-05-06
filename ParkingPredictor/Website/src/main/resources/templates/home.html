@@ -2,11 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkingBuddy</title>
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 92%;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>ParkingBuddy</h1>
+    </header>
+    <div class="container">
+        <div class="map">
+            <div id="map"></div>
+        </div>
+        <div class="parkingStations">
+            <p>Available parking: </p>
+            
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([46.638780, 11.350111], 9);
 
-    <h1>ParkingBuddy</h1>
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
 
+        fetch('/api/points')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(point => {
+                    L.marker([point.lat, point.lng])
+                        .addTo(map)
+                        .bindPopup(point.name);
+                });
+            })
+            .catch(error => console.error('Error loading markers:', error));
+    </script>
 </body>
 </html>
